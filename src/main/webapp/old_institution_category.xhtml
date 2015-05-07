@@ -13,31 +13,31 @@
     <ui:define name="content">
         <p:growl autoUpdate="true"/>
         <h:form>
-            <p:panel id="crud" header="#{postLabels.manageOldInstitutionCategory}" >
+            <p:panel id="crud" header="Manage Old Institution Category" >
                 <p:panelGrid columns="2" >
-                    <p:panel id="panSelect" header="#{postLabels.select}" >
+                    <p:panel id="panSelect" header="Select" >
                         <p:panelGrid columns="1">
                             <h:selectOneListbox id="lstSelect" value="#{oldInstitutionCategoryController.current}" converter="#{CitizenCharterCategoryControllerConverter}" size="10">
                                 <f:selectItems value="#{oldInstitutionCategoryController.items}" var="item" itemLabel="#{item.name}" itemValue="#{item}" />
                                 <f:ajax execute="lstSelect" render="panEdit" />
                             </h:selectOneListbox>
-                            <h:commandButton id="btnAdd" value="#{postLabels.addNew}" action="#{oldInstitutionCategoryController.prepareAdd}" >
+                            <h:commandButton id="btnAdd" value="Add New" action="#{oldInstitutionCategoryController.prepareAdd}" >
                                 <f:ajax render="panEdit" execute="btnAdd" />
                             </h:commandButton>
                         </p:panelGrid>
                     </p:panel>
-                    <p:panel id="panEdit" header="#{labels.edit}" >
+                    <p:panel id="panEdit" header="Edit" >
 
                         <p:panelGrid columns="2" >
-                            <h:outputLabel value="#{labels.oldName}"/>
+                            <h:outputLabel value="Old Name"/>
                             <h:inputText value="#{oldInstitutionCategoryController.current.name}" />
-                            <h:outputLabel value="#{labels.sOldName}"/>
+                            <h:outputLabel value="Old Name (Sinhala)"/>
                             <h:inputText value="#{oldInstitutionCategoryController.current.sname}" />
-                            <h:outputLabel value="#{labels.tOldName}"/>
+                            <h:outputLabel value="Old Name (Tamil)"/>
                             <h:inputText value="#{oldInstitutionCategoryController.current.tname}" />
                             
                             <h:outputLabel value=""/>
-                            <h:commandButton id="btnSave" value="#{labels.save}" action="#{oldInstitutionCategoryController.saveSelected()}" />
+                            <h:commandButton id="btnSave" value="Save" action="#{oldInstitutionCategoryController.saveSelected()}" />
 
                         </p:panelGrid>
                     </p:panel>

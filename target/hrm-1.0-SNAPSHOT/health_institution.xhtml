@@ -17,7 +17,7 @@
             <p:growl autoUpdate="true" />
             <p:focus id="selectFocus" context="gpSelect" />
             <p:focus id="detailFocus" context="gpDetail" />
-            <p:panel header="#{labels.manageHealthInstitutions}" >
+            <p:panel header="Manage Health Institutions" >
                 <h:panelGrid id ="gpVeda" columns="2" >
 
                     <h:panelGrid id="gpSelect" columns="1"  >
@@ -25,7 +25,7 @@
 
                             <h:panelGrid id="gpSelectText" columns="2" >
 
-                                <h:outputText id="lblSelect" value="#{labels.healthInstitutions}" >
+                                <h:outputText id="lblSelect" value="Health Institutions" >
                                 </h:outputText>
 
                                 <h:inputText id="txtSelect" value="#{healthInstitutionController.selectText}"  style="min-width: 200px" >
@@ -47,13 +47,13 @@
                             </h:panelGrid>
 
                             <h:panelGrid id="gpSelectButtons" columns="3"  >
-                                <h:commandButton id="btnAdd" value="#{labels.add}" action="#{healthInstitutionController.prepareAdd}" styleClass="buttons" >
+                                <h:commandButton id="btnAdd" value="Add" action="#{healthInstitutionController.prepareAdd}" styleClass="buttons" >
                                     <f:ajax render="gpDetail detailFocus" execute="btnAdd" >
                                     </f:ajax>
                                 </h:commandButton>
 
-                                <h:commandButton id="btnDelete" onclick="if (!confirm(#{labels.areYouSureYouWantToDelete}))
-                                            return false;" value="#{labels.delete}" action="#{healthInstitutionController.delete()}" styleClass="buttons">
+                                <h:commandButton id="btnDelete" onclick="if (!confirm(areYouSureYouWantToDelete}))
+                                            return false;" value="Delete" action="#{healthInstitutionController.delete()}" styleClass="buttons">
                                 </h:commandButton>
                             </h:panelGrid>
                         </p:panel>
@@ -62,73 +62,73 @@
                     <p:panel>
                         <h:panelGrid id="gpDetail" columns="1">
                             <h:panelGrid id="gpDetailText" columns="2">
-                                <h:outputText id="lblName" value="#{labels.healthInstitution}" ></h:outputText>
+                                <h:outputText id="lblName" value="Health Institution" ></h:outputText>
                                 <h:inputText id="txtName" value="#{healthInstitutionController.current.name}"  ></h:inputText>
 
-                                <h:outputText id="lblsName" value="#{labels.healthInstitutionS}" ></h:outputText>
+                                <h:outputText id="lblsName" value="Health Institution (Sinhala)" ></h:outputText>
                                 <h:inputText id="txtsName" value="#{healthInstitutionController.current.sname}"  ></h:inputText>
 
-                                <h:outputText id="lbltName" value="#{labels.healthInstitutionT}" ></h:outputText>
+                                <h:outputText id="lbltName" value="Health Institution (Tamil)" ></h:outputText>
                                 <h:inputText id="txttName" value="#{healthInstitutionController.current.tname}"  ></h:inputText>
 
                                 
                                 
-                                <h:outputText  value="#{postLabels.code}" ></h:outputText>
+                                <h:outputText  value="Code" ></h:outputText>
                                 <h:inputText value="#{healthInstitutionController.current.code}"  ></h:inputText>
 
                                 
        
                                 
-                                <h:outputText  value="#{postLabels.address}" ></h:outputText>
+                                <h:outputText  value="Address" ></h:outputText>
                                 <h:inputText  value="#{healthInstitutionController.current.address}"  ></h:inputText>
 
-                                <h:outputText  value="#{postLabels.telephone}" ></h:outputText>
+                                <h:outputText  value="Telephone" ></h:outputText>
                                 <h:inputText value="#{healthInstitutionController.current.telephone}"  ></h:inputText>
 
-                                <h:outputText  value="#{postLabels.mobile}" ></h:outputText>
+                                <h:outputText  value="Mobile" ></h:outputText>
                                 <h:inputText value="#{healthInstitutionController.current.mobile}"  ></h:inputText>
 
-                                <h:outputText  value="#{postLabels.telephone}" ></h:outputText>
+                                <h:outputText  value="Telephone" ></h:outputText>
                                 <h:inputText value="#{healthInstitutionController.current.telephone}"  ></h:inputText>
 
-                                <h:outputText  value="#{postLabels.fax}" ></h:outputText>
+                                <h:outputText  value="Fax" ></h:outputText>
                                 <h:inputText value="#{healthInstitutionController.current.fax}"  ></h:inputText>
 
-                                <h:outputText  value="#{postLabels.email}" ></h:outputText>
+                                <h:outputText  value="Email" ></h:outputText>
                                 <h:inputText  value="#{healthInstitutionController.current.email}"  ></h:inputText>
 
-                                <h:outputText  value="#{postLabels.website}" ></h:outputText>
+                                <h:outputText  value="Website" ></h:outputText>
                                 <h:inputText value="#{healthInstitutionController.current.website}"  ></h:inputText>
 
-                                <h:outputText id="lblCat" value="#{labels.institutionType}" ></h:outputText>
+                                <h:outputText id="lblCat" value="Institution Type" ></h:outputText>
                                 <h:selectOneListbox id="cmbCat1" value="#{healthInstitutionController.current.institutionType}"  size="1">
-                                    <f:selectItem itemLabel="#{labels.selectInstitutionType}"/>
+                                    <f:selectItem itemLabel="Select Institution Type"/>
                                     <f:selectItems value="#{institutionTypeController.items}" />
                                 </h:selectOneListbox>
 
-                              <h:outputText id="lblMoh" value="#{labels.mohArea}" ></h:outputText>
+                              <h:outputText id="lblMoh" value="MOH Area" ></h:outputText>
                                 <h:selectOneListbox id="cmbMoh" value="#{healthInstitutionController.current.mohArea}"  size="1">
-                                    <f:selectItem itemLabel="#{labels.selectPHMArea}"/>
+                                    <f:selectItem itemLabel="Select PHM Area"/>
                                     <f:selectItems value="#{mohController.items}" var="moh" itemLabel="#{moh.name}" itemValue="#{moh}" />
                                     <f:ajax event="click" execute="cmbMoh" render="lblMohDpdhs lblMohProvince" />
                                 </h:selectOneListbox>
 
-                              <h:outputText  value="#{labels.dpdhsArea}" ></h:outputText>
+                              <h:outputText  value="DPDHS Area" ></h:outputText>
                               <h:outputText id="lblMohDpdhs" value="#{healthInstitutionController.current.mohArea.superArea.name}" ></h:outputText>
                               
-                              <h:outputText  value="#{labels.province}" ></h:outputText>
+                              <h:outputText  value="Province" ></h:outputText>
                               <h:outputText id="lblMohProvince" value="#{healthInstitutionController.current.mohArea.superArea.superArea.name}" ></h:outputText>
                               
-                              <h:outputText id="lblOldCat" value="#{labels.oldCategory}" ></h:outputText>
+                              <h:outputText id="lblOldCat" value="Old Category" ></h:outputText>
                               <h:selectOneListbox id="cmbOldCat" value="#{healthInstitutionController.current.oldCategory}"  size="1">
-                                  <f:selectItem itemLabel="#{labels.selectOldInstitutionType}"/>
+                                  <f:selectItem itemLabel="Select Old Institution Type"/>
                                     <f:selectItems value="#{oldInstitutionCategoryController.items}" />
                                 </h:selectOneListbox>
                               
 
                             </h:panelGrid>
                             <h:panelGrid id="gpDetailButtons" columns="2">
-                                <h:commandButton id="btnSave" value="#{labels.save}"  action="#{healthInstitutionController.saveSelected()}" styleClass="buttons">
+                                <h:commandButton id="btnSave" value="Save"  action="#{healthInstitutionController.saveSelected()}" styleClass="buttons">
                                     <f:ajax render="btnAdd  btnDelete btnSave  txtSelect lstSelect gpDetail selectFocus"  execute="gpDetail" >
                                     </f:ajax>
                                 </h:commandButton>

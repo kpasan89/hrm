@@ -17,7 +17,7 @@
             <p:growl autoUpdate="true" />
             <p:focus id="selectFocus" context="gpSelect" />
             <p:focus id="detailFocus" context="gpDetail" />
-            <p:panel header="#{labels.ManageInstitutionTypes}" >
+            <p:panel header="Manage Institution Types" >
                 <h:panelGrid id ="gpVeda" columns="2" >
 
                     <h:panelGrid id="gpSelect" columns="1"  >
@@ -25,7 +25,7 @@
 
                             <h:panelGrid id="gpSelectText" columns="2" >
 
-                                <h:outputText id="lblSelect" value="#{labels.institutionType}" >
+                                <h:outputText id="lblSelect" value="Institution Type" >
                                 </h:outputText>
 
                                 <h:inputText id="txtSelect" value="#{institutionTypeController.selectText}" readonly="#{institutionTypeController.selectControlDisable}"  style="min-width: 200px" >
@@ -47,22 +47,22 @@
                             </h:panelGrid>
 
                             <h:panelGrid id="gpSelectButtons" columns="3"  >
-                                <h:commandButton id="btnAdd" value="#{labels.add}" readonly="#{institutionTypeController.selectControlDisable}" action="#{institutionTypeController.prepareAdd()}" styleClass="buttons" >
+                                <h:commandButton id="btnAdd" value="Add" readonly="#{institutionTypeController.selectControlDisable}" action="#{institutionTypeController.prepareAdd()}" styleClass="buttons" >
                                     <f:ajax render="btnAdd btnEdit btnDelete btnSave btnCancel txtSelect lstSelect gpDetail detailFocus" execute="btnEdit" >                                
                                     </f:ajax>
                                 </h:commandButton>
-                                <h:commandButton id ="btnEdit" value="#{labels.edit}" readonly="#{institutionTypeController.selectControlDisable}" action="#{institutionTypeController.prepareEdit()}"  styleClass="buttons">
+                                <h:commandButton id ="btnEdit" value="Edit" readonly="#{institutionTypeController.selectControlDisable}" action="#{institutionTypeController.prepareEdit()}"  styleClass="buttons">
                                     <f:ajax render="btnAdd btnEdit btnDelete btnSave btnCancel txtSelect lstSelect gpDetail detailFocus" execute="lstSelect" >
                                     </f:ajax>
                                 </h:commandButton>
-                                <h:commandButton id="btnDelete"  action="#{institutionTypeController.delete()}"  value="#{labels.delete}" readonly="#{institutionTypeController.selectControlDisable}" styleClass="buttons">
+                                <h:commandButton id="btnDelete"  action="#{institutionTypeController.delete()}"  value="Delete" readonly="#{institutionTypeController.selectControlDisable}" styleClass="buttons">
                                     <f:ajax render="lstSelect gpDetail" execute="lstSelect btnDelete" >
                                     </f:ajax>                                
                                 </h:commandButton>
                             </h:panelGrid>
-                            <p:confirmDialog appendToBody="true" message="#{labels.areYouSureYouWantToDelete}" header="#{labels.initiatingDestroyProcess}" severity="alert" widgetVar="confirmation">  
-                                <p:commandButton value="#{labels.yes}" oncomplete="confirmation.hide()" action="#{institutionTypeController.delete()}" update="lstSelect gpDetail"  />  
-                                <p:commandButton value="#{labels.No}" onclick="confirmation.hide();" type="button" />   
+                            <p:confirmDialog message="Are You Sure You Want To Delete" header="Initiating Destroy Process" severity="alert" widgetVar="confirmation">  
+                                <p:commandButton value="Yes" oncomplete="confirmation.hide()" action="#{institutionTypeController.delete()}" update="lstSelect gpDetail"  />  
+                                <p:commandButton value="No" onclick="confirmation.hide();" type="button" />   
                             </p:confirmDialog>
                         </p:panel>
                     </h:panelGrid  >
@@ -70,25 +70,25 @@
                     <p:panel>
                         <h:panelGrid id="gpDetail" columns="1">
                             <h:panelGrid id="gpDetailText" columns="2">
-                                <h:outputText id="lblName" value="#{labels.institutionType}" ></h:outputText>
+                                <h:outputText id="lblName" value="Institution Type" ></h:outputText>
                                 <h:inputText class="pdInputText" id="txtName" value="#{institutionTypeController.current.name}" readonly="#{institutionTypeController.modifyControlDisable}" ></h:inputText>
-                                <h:outputText id="lblNameS" value="#{labels.institutionTypeS}" ></h:outputText>
+                                <h:outputText id="lblNameS" value="Institution Type Sinhala" ></h:outputText>
                                 <h:inputText class="pdInputText" id="txtNameS" value="#{institutionTypeController.current.sname}" readonly="#{institutionTypeController.modifyControlDisable}" ></h:inputText>
-                                <h:outputText id="lblNameT" value="#{labels.institutionTypeT}" ></h:outputText>
+                                <h:outputText id="lblNameT" value="Institution Type Tamil" ></h:outputText>
                                 <h:inputText class="pdInputText" id="txtNameT" value="#{institutionTypeController.current.tname}" readonly="#{institutionTypeController.modifyControlDisable}" ></h:inputText>
 
 
 
-                                <h:outputText id="lblComments" value="#{postLabels.commentsInstitution}" ></h:outputText>
+                                <h:outputText id="lblComments" value="Comments Institution" ></h:outputText>
                                 <h:inputText class="pdInputText" id="txtComments" value="#{institutionTypeController.current.description}" readonly="#{institutionTypeController.modifyControlDisable}" ></h:inputText>
                                  
                             </h:panelGrid>
                             <h:panelGrid id="gpDetailButtons" columns="2">
-                                <h:commandButton id="btnSave" value="#{labels.save}" readonly="#{institutionTypeController.modifyControlDisable}" action="#{institutionTypeController.saveSelected()}" styleClass="buttons">
+                                <h:commandButton id="btnSave" value="Save" readonly="#{institutionTypeController.modifyControlDisable}" action="#{institutionTypeController.saveSelected()}" styleClass="buttons">
                                     <f:ajax render="btnAdd btnEdit btnDelete btnSave btnCancel txtSelect lstSelect gpDetail selectFocus"  execute="gpDetail    " >
                                     </f:ajax>
                                 </h:commandButton>
-                                <h:commandButton id ="btnCancel" value="#{labels.cancel}" readonly="#{institutionTypeController.modifyControlDisable}" action="#{institutionTypeController.cancelSelect()}" styleClass="buttons">
+                                <h:commandButton id ="btnCancel" value="Cancel" readonly="#{institutionTypeController.modifyControlDisable}" action="#{institutionTypeController.cancelSelect()}" styleClass="buttons">
                                     <f:ajax render="btnAdd btnEdit btnDelete btnSave btnCancel txtSelect lstSelect gpDetail selectFocus" execute=" gpDetail    " >                                
                                     </f:ajax>
                                 </h:commandButton>

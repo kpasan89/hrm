@@ -17,7 +17,7 @@
             <p:growl autoUpdate="true" />
             <p:focus id="selectFocus" context="gpSelect" />
             <p:focus id="detailFocus" context="gpDetail" />
-            <p:panel header="#{labels.manageDesignationsCategory}" >
+            <p:panel header="Manage Designations Category" >
                 <h:panelGrid id ="gpVeda" columns="2" >
 
                     <h:panelGrid id="gpSelect" columns="1"  >
@@ -25,7 +25,7 @@
 
                             <h:panelGrid id="gpSelectText" columns="2" >
 
-                                <h:outputText id="lblSelect" value="#{labels.Designations}" >
+                                <h:outputText id="lblSelect" value="Designations" >
                                 </h:outputText>
 
                                 <h:inputText id="txtSelect" value="#{designationController.selectText}" disabled="#{designationController.selectControlDisable}"  style="min-width: 200px" >
@@ -47,20 +47,20 @@
                             </h:panelGrid>
 
                             <h:panelGrid id="gpSelectButtons" columns="3"  >
-                                <h:commandButton id="btnAdd" value="#{labels.add}" disabled="#{designationController.selectControlDisable}" action="#{designationController.prepareAdd()}" styleClass="buttons" >
+                                <h:commandButton id="btnAdd" value="Add" disabled="#{designationController.selectControlDisable}" action="#{designationController.prepareAdd()}" styleClass="buttons" >
                                     <f:ajax render="btnAdd btnEdit btnDelete btnSave btnCancel txtSelect lstSelect gpDetail detailFocus" execute="btnEdit" >                                
                                     </f:ajax>
                                 </h:commandButton>
-                                <h:commandButton id ="btnEdit" value="#{labels.edit}" disabled="#{designationController.selectControlDisable}" action="#{designationController.prepareEdit()}"  styleClass="buttons">
+                                <h:commandButton id ="btnEdit" value="Edit" disabled="#{designationController.selectControlDisable}" action="#{designationController.prepareEdit()}"  styleClass="buttons">
                                     <f:ajax render="btnAdd btnEdit btnDelete btnSave btnCancel txtSelect lstSelect gpDetail detailFocus" execute="lstSelect" >
                                     </f:ajax>
                                 </h:commandButton>
-                                <h:commandButton id="btnDelete" onclick="confirmation.show()" value="#{labels.delete}" disabled="#{designationController.selectControlDisable}" styleClass="buttons">
+                                <h:commandButton id="btnDelete" onclick="confirmation.show()" value="Delete" disabled="#{designationController.selectControlDisable}" styleClass="buttons">
                                 </h:commandButton>
                             </h:panelGrid>
-                            <p:confirmDialog appendToBody="true" message="#{labels.areYouSureYouWantToDelete}" header="#{labels.initiatingDestroyProcess}" severity="alert" widgetVar="confirmation">  
-                                <p:commandButton value="#{labels.yes}" oncomplete="confirmation.hide()" action="#{designationController.delete()}" update="lstSelect gpDetail"  />  
-                                <p:commandButton value="#{labels.No}" onclick="confirmation.hide()" type="button" />   
+                            <p:confirmDialog message="areYouSureYouWantToDelete}" header="Initiating Destroy Process" severity="alert" widgetVar="confirmation">  
+                                <p:commandButton value="Yes" oncomplete="confirmation.hide()" action="#{designationController.delete()}" update="lstSelect gpDetail"  />  
+                                <p:commandButton value="No" onclick="confirmation.hide()" type="button" />   
                             </p:confirmDialog>
                         </p:panel>
                     </h:panelGrid  >
@@ -68,20 +68,20 @@
                     <p:panel>
                         <h:panelGrid id="gpDetail" columns="1">
                             <h:panelGrid id="gpDetailText" columns="2">
-                                <h:outputText id="lblName" value="#{labels.designationsCategory}" ></h:outputText>
+                                <h:outputText id="lblName" value="Designation Category" ></h:outputText>
                                 <h:inputText id="txtName" value="#{designationController.current.name}" disabled="#{designationController.modifyControlDisable}" ></h:inputText>
-                                <h:outputText id="lblNameS" value="#{labels.sdesignationCategory}" ></h:outputText>
+                                <h:outputText id="lblNameS" value="Designation Category (Sinhala)" ></h:outputText>
                                 <h:inputText id="txtNameS" value="#{designationController.current.sname}" disabled="#{designationController.modifyControlDisable}" ></h:inputText>
-                                <h:outputText id="lblNameT" value="#{labels.tdesignationCategory}" ></h:outputText>
+                                <h:outputText id="lblNameT" value="Designation Category" ></h:outputText>
                                 <h:inputText id="txtNameT" value="#{designationController.current.tname}" disabled="#{designationController.modifyControlDisable}" ></h:inputText>
                             
                             </h:panelGrid>
                             <h:panelGrid id="gpDetailButtons" columns="2">
-                                <h:commandButton id="btnSave" value="#{labels.save}" disabled="#{designationController.modifyControlDisable}" action="#{designationController.saveSelected()}" styleClass="buttons">
+                                <h:commandButton id="btnSave" value="Save" disabled="#{designationController.modifyControlDisable}" action="#{designationController.saveSelected()}" styleClass="buttons">
                                     <f:ajax render="btnAdd btnEdit btnDelete btnSave btnCancel txtSelect lstSelect gpDetail selectFocus"  execute="gpDetail    " >
                                     </f:ajax>
                                 </h:commandButton>
-                                <h:commandButton id ="btnCancel" value="#{labels.cancel}" disabled="#{designationController.modifyControlDisable}" action="#{designationController.cancelSelect()}" styleClass="buttons">
+                                <h:commandButton id ="btnCancel" value="Cancel" disabled="#{designationController.modifyControlDisable}" action="#{designationController.cancelSelect()}" styleClass="buttons">
                                     <f:ajax render="btnAdd btnEdit btnDelete btnSave btnCancel txtSelect lstSelect gpDetail selectFocus" execute=" gpDetail    " >                                
                                     </f:ajax>
                                 </h:commandButton>
