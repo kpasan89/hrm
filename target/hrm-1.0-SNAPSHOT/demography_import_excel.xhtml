@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="./resources/template/pdhs_template_1.xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:pou="http://primefaces.org/ui"
+                xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:define name="content">
+        
+        <h:form enctype="multipart/form-data">
+            <pou:growl ></pou:growl>
+            <h:outputLabel value="Enter Data Of ADPDHS Area" ></h:outputLabel>
+            <h:panelGrid columns="2" >
+
+
+                
+                <h:outputLabel value="Select DPDHS Area"/>
+                <h:selectOneListbox value="#{demographyExcelManager.selectedArea}" >
+                    <f:selectItems value="#{demographyExcelManager.dpdhsAreas}" var="d" itemValue="#{d}" itemLabel="#{d.name}"/>
+                </h:selectOneListbox>
+
+
+                <h:outputLabel value="Start Row No" />
+                <h:inputText value="#{demographyExcelManager.startRow}"/>
+
+                <h:outputLabel value="MOH Column No" />
+                <h:inputText value="#{demographyExcelManager.mohCol}"/>
+
+                <h:outputLabel value="PHI Column No" />
+                <h:inputText value="#{demographyExcelManager.phiCol}"/>
+
+                <h:outputLabel value="PHM Column No" />
+                <h:inputText value="#{demographyExcelManager.phmCol}"/>
+
+                <h:outputLabel value="GN Column No" />
+                <h:inputText value="#{demographyExcelManager.gnCol}"/>
+
+                <h:outputLabel value="GN Population Column No" />
+                <h:inputText value="#{demographyExcelManager.gnPopCol}"/>
+
+                <h:outputLabel value="GN Area Column No" />
+                <h:inputText value="#{demographyExcelManager.gnAreaCol}"/>
+
+
+                <pou:fileUpload value="#{demographyExcelManager.file}" mode="simple"/>
+                <h:commandButton value="#{labels.Subit}" action="#{demographyExcelManager.importToExcel}"/>
+
+            </h:panelGrid>
+        </h:form>
+    
+    
+    
+    </ui:define>
+</ui:composition>

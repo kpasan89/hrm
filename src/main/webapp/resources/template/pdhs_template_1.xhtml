@@ -1,0 +1,146 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      >
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <h:outputStylesheet library="css" name="pdhs.css"  />
+        <title>
+            <ui:insert  name="title">
+                #{labels.topic}
+            </ui:insert>
+        </title>
+    </h:head>
+
+    <h:body >
+        <f:view locale="#{languageBean.localeCode}" >
+            <h:outputStylesheet library="css" name="pdhs.css"  />
+            <table id="bodyTable" >
+                <tr id="topLine">
+                    <td>
+                    </td>
+                </tr>
+                <tr id="heading">
+                    <td  >
+                        <h:panelGroup rendered="#{!sessionController.logged}" >
+                            <table style="width: 100%;">
+                                <tr>
+                                    <td colspan="5" >
+                                        <h:graphicImage library="image" name="header01en.jpg" id="header" style="width: 100%;" ></h:graphicImage>
+                                    </td>
+                                </tr>
+                            </table>
+                        </h:panelGroup>
+                        <h:panelGroup rendered="#{sessionController.logged}" >
+                            <p:panelGrid columns="2" style="border: 0px; width: 100%; height: 75px; ">
+                                <p:panel style="margin: 0px; padding: 0px; border: 0px; width: 20%; height: 70px;">
+                                    <h:graphicImage  class="pdLogo" library="image" name="logo.jpg" width="50px" height="50px" ></h:graphicImage>
+                                </p:panel>
+                                <p:panel style="margin: 1px; padding: 1px; border: 0px; width: 60%;">
+                                    <h:outputLabel style="font-size: 2.0em;" >#{labels.topic}</h:outputLabel><br/>&nbsp;
+                                    <h:outputLabel style="font-size: 1.0em;" >#{labels.subtopic}</h:outputLabel>
+                                </p:panel>
+                            </p:panelGrid>
+                        </h:panelGroup>
+                    </td>
+                </tr>
+
+                <tr id="menuRow">
+                    <td style="padding: 5px;">
+                        <h:panelGroup rendered="#{sessionController.logged}" >
+                            <h:form>
+                                <p:menubar style="border: 0px;">
+                                    <p:menuitem  ajax="false"  action="index" value="Home" icon="ui-icon-home"><p:commandLink action="index" ajax="false" ></p:commandLink></p:menuitem>
+                                    <p:submenu label="Human Resources" >
+                                        <p:menuitem ajax="false" action="demography_edit.xhtml" value="Edit" ></p:menuitem>
+                                        <p:menuitem ajax="false" action="demography_import_excel.xhtml" value="Import" ></p:menuitem>
+                                        <p:menuitem ajax="false" action="demography_display_areas.xhtml" value="Display" ></p:menuitem>
+                                        <p:menuitem ajax="false" action="designation_level.xhtml" value="Designation Levels" ></p:menuitem>
+                                        <p:menuitem ajax="false" action="designation.xhtml" value="Designations" ></p:menuitem>
+                                        <p:menuitem ajax="false" action="institution_designation.xhtml" value="Institution Designation" ></p:menuitem>
+                                        <p:menuitem ajax="false" action="cadre_positions.xhtml" value="Cadre Positions" ></p:menuitem>
+                                        <p:menuitem ajax="false" action="reports.xhtml" value="Reports" ></p:menuitem>
+                                        <p:menuitem ajax="false" action="cadre_edit.xhtml" value="Cadre Positions" ></p:menuitem>
+                                        <p:menuitem ajax="false" action="cadre_for_institution_type.xhtml" value="Cadre for Institution Types" ></p:menuitem>
+                                        <p:menuitem ajax="false" action="cadre_for_institution.xhtml" value="Cadre for Institution" ></p:menuitem>
+                                        <p:menuitem ajax="false" action="cadre_reports.xhtml" value="Cadre Reports" ></p:menuitem>
+                                    </p:submenu>
+                                </p:menubar>
+                            </h:form>
+                        </h:panelGroup>
+                    </td>
+                </tr>
+
+                <tr id="contentRow">
+
+                    <td id="contentCol" style="max-width:100%;">
+
+                        <p:panel rendered="#{sessionController.logged}" style="width: 100%!important;">
+                            <p:growl autoUpdate="true" ></p:growl>
+                            <ui:insert name="content" class="fullWidth"   >
+
+                            </ui:insert>
+                        </p:panel>
+
+                        <h:panelGroup rendered="#{!sessionController.logged}" style="width:100%!important;" >
+                            <ui:insert name="login" class="fullWidth"  >
+                                <h:form>
+
+                                    <p:panel header="#{labels.LogintotheApplication}" style="margin-top: 10%; margin-bottom: 10%; margin-left:5%; margin-right: 5%;" >
+
+                                        <h:panelGrid columns="2" >
+                                            <h:outputLabel value="#{labels.UserName}" ></h:outputLabel>
+                                            <h:inputText value="#{connetcionController.userName}" />
+                                            <h:outputLabel value="#{labels.Password}" ></h:outputLabel>
+                                            <h:inputSecret value="#{connetcionController.passord}" />
+                                            <h:commandButton id="btnLogin" class="pdButton" type="submit" value="Login" action="#{connetcionController.loginAction()}"   />
+                                            <h:commandButton id="btnReg" class="pdButton" type="submit" value="Register" action="register"  />
+                                        </h:panelGrid>
+
+                                    </p:panel>
+                                </h:form>
+                            </ui:insert>
+                        </h:panelGroup>
+
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <table>
+                            <tr>
+                                <td>
+
+
+
+
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+
+            </table>
+            <div style="bottom: 0px">
+                <h:form>
+                    <h:panelGroup rendered="#{sessionController.logged}" >
+                        <h:commandLink value="logout" action="#{connetcionController.logout()}"/>
+                    </h:panelGroup>
+                    <h:panelGroup rendered="#{!sessionController.logged}" >
+                        <h:outputLabel value="&copy;&nbsp;Health Information Unit, PDHS, Southern Province" id="copyRights" />
+                    </h:panelGroup>
+                    <h:commandLink value="&nbsp;|&nbsp;Sinhala" action="#{languageBean.languageToSinhala()}" rendered="#{!languageBean.inSinhala}" />
+                    <h:commandLink value="&nbsp;|&nbsp;Tamil" action="#{languageBean.languageToTamil()}" rendered="#{!languageBean.inTamil}" />
+                    <h:commandLink value="&nbsp;|&nbsp;English" action="#{languageBean.languageToEnglish()}" rendered="#{!languageBean.inEnglish}" />
+
+                </h:form>
+            </div>
+        </f:view>
+    </h:body>
+
+</html>
