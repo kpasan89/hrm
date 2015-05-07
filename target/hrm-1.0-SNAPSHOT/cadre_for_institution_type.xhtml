@@ -50,15 +50,15 @@
                             </p:column>
                             <p:column >
                                 <f:facet name="header" >
-                                    <h:outputLabel value="count}" />
+                                    <h:outputLabel value="Count" />
                                 </f:facet>
                                 <h:outputLabel value="#{itc.cadreCount}" />
                             </p:column>
                             <p:column >
                                 <f:facet name="header" >
-                                    <h:outputLabel value="remove}" />
+                                    <h:outputLabel value="Remove" />
                                 </f:facet>
-                                <h:commandButton value="remove}" action="#{institutionTypeCadreController.removeDesignationFromInstitutionType()}" >
+                                <h:commandButton value="Remove" action="#{institutionTypeCadreController.removeDesignationFromInstitutionType()}" >
                                     <f:setPropertyActionListener target="#{institutionTypeCadreController.current}" value="#{itc}" />
                                 </h:commandButton>
                             </p:column>
