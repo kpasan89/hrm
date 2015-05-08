@@ -11,7 +11,7 @@
         <ui:composition template="./resources/template/pdhs_template_1.xhtml">
             <ui:define name="content">
 
-                <p:panel header="#{labels.addCarderDetailsToInstitution}" >
+                <p:panel header="Add Carder Details To Institution" >
 
                     <h:form>
 
@@ -21,7 +21,7 @@
                             <table>
                                 <tr>
                                     <td>
-                                        <h:outputLabel value="#{labels.institution}" />
+                                        <h:outputLabel value="Institution" />
                                     </td>
                                     <td>
                                         <h:selectOneListbox id="lstType" value="#{institutionCadreController.institution}" size="1">
@@ -35,7 +35,7 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <h:outputLabel value="#{labels.month}" />
+                                        <h:outputLabel value="Month" />
                                     </td>
                                     <td>
                                         <p:calendar id="calDate"    value="#{institutionCadreController.carderDate}" pattern="dd MMMM yyyy" navigator="true" >
@@ -50,7 +50,7 @@
 
                         </h:panelGroup>
 
-                        <p:panel header="#{labels.exportAllData}">
+                        <p:panel header="Export All Data">
                             <h:commandLink>
                                 <h:graphicImage  library="image" name="excel.png" />
                                 <p:dataExporter type="xls" target="tblC" fileName="CarderList" />
@@ -74,13 +74,13 @@
                                     </f:facet>
                                     <p:column >
                                         <f:facet name="header" >
-                                            <h:outputLabel value="#{labels.Designation}" />
+                                            <h:outputLabel value="Designation" />
                                         </f:facet>
                                         <h:outputLabel value="#{itc.designation.name}" />
                                     </p:column>
                                     <p:column >
                                         <f:facet name="header" >
-                                            <h:outputLabel value="#{labels.maleIn}" style="max-width:50px; text-align:right;"/>
+                                            <h:outputLabel value="Male In" style="max-width:50px; text-align:right;"/>
                                         </f:facet>
                                         <h:inputText value="#{itc.maleIn}" maxlength="4" style="max-width:50px; text-align:right;">
                                             <f:ajax event="blur" execute="tblC" render="tblC" />
@@ -88,7 +88,7 @@
                                     </p:column>
                                     <p:column >
                                         <f:facet name="header" >
-                                            <h:outputLabel value="#{labels.femaleIn}" />
+                                            <h:outputLabel value="Female In" />
                                         </f:facet>
                                         <h:inputText value="#{itc.femaleIn}" maxlength="4" style="max-width:50px; text-align:right;">
                                             <f:ajax event="blur" execute="tblC" render="tblC" />
@@ -96,13 +96,13 @@
                                     </p:column>
                                     <p:column >
                                         <f:facet name="header" >
-                                            <h:outputLabel value="#{labels.total}" />
+                                            <h:outputLabel value="Total" />
                                         </f:facet>
                                         <h:outputLabel value="#{itc.maleAndFemaleIn}" />
                                     </p:column>
                                     <p:column >
                                         <f:facet name="header" >
-                                            <h:outputLabel value="#{labels.approved}" />
+                                            <h:outputLabel value="Approved" />
                                         </f:facet>
                                         <h:inputText value="#{itc.approved}" maxlength="4" style="max-width:50px; text-align:right;">
                                             <f:ajax event="blur" execute="tblC" render="tblC" />
@@ -110,15 +110,15 @@
                                     </p:column>
                                     <p:column >
                                         <f:facet name="header" >
-                                            <h:outputLabel value="#{labels.vacant}" />
+                                            <h:outputLabel value="Vacant" />
                                         </f:facet>
                                         <h:outputLabel value="#{itc.vac}" />
                                     </p:column>                            
                                     <p:column >
                                         <f:facet name="header" >
-                                            <h:outputLabel value="#{labels.remove}" />
+                                            <h:outputLabel value="Remove" />
                                         </f:facet>
-                                        <h:commandButton value="#{labels.remove}" action="#{institutionCadreController.removeDesignationFromInstitution()}" >
+                                        <h:commandButton value="Remove" action="#{institutionCadreController.removeDesignationFromInstitution()}" >
                                             <f:setPropertyActionListener target="#{institutionCadreController.current}" value="#{itc}" />
                                             <f:ajax execute="@form" render="@all" ></f:ajax>
                                         </h:commandButton>
@@ -127,7 +127,7 @@
                                     <p:columnGroup type="footer">  
                                         <p:row>  
                                             <p:column >
-                                                <h:outputLabel value="#{labels.total}" />
+                                                <h:outputLabel value="Total" />
                                             </p:column>
                                             <p:column footerText="#{institutionCadreController.institutionMaleInCount}">
                                             </p:column>
@@ -148,19 +148,19 @@
                                 <table>
                                     <tr>
                                         <td colspan="3">
-                                            <p:panel header="#{labels.addNewCarderPosition}" >
+                                            <p:panel header="Add New Carder Position" >
                                                 <p:panelGrid columns="2" >
-                                                    <h:outputLabel value="#{labels.caderPostion}" />
+                                                    <h:outputLabel value="Cader Postion" />
                                                     <h:selectOneListbox id="cmbAddDesi" value="#{institutionCadreController.designation}" size="1">
                                                         <f:selectItems value="#{designationController.items}" var="d" itemLabel="#{d.name}" itemValue="#{d}" />
                                                     </h:selectOneListbox>
-                                                    <h:outputLabel value="#{labels.approved}" />
+                                                    <h:outputLabel value="Approved" />
                                                     <h:inputText id="txtAddApp" value="#{institutionCadreController.caderCount}" style="max-width:50px; text-align:right;"/>
-                                                    <h:outputLabel value="#{labels.maleIn}" />
+                                                    <h:outputLabel value="Male In" />
                                                     <h:inputText id="txtAddMale" value="#{institutionCadreController.maleIn}" style="max-width:50px; text-align:right;"/>
-                                                    <h:outputLabel value="#{labels.femaleIn}" />
+                                                    <h:outputLabel value="Female In" />
                                                     <h:inputText id="txtAddFemale" value="#{institutionCadreController.femaleIn}" style="max-width:50px; text-align:right;"/>
-                                                    <p:commandButton update="@all" process="cmbAddDesi txtAddApp txtAddMale txtAddFemale btnAddCarder" id="btnAddCarder" value="#{labels.add}" action="#{institutionCadreController.addDesignationToInstitution()}" >
+                                                    <p:commandButton update="@all" process="cmbAddDesi txtAddApp txtAddMale txtAddFemale btnAddCarder" id="btnAddCarder" value="add}" action="#{institutionCadreController.addDesignationToInstitution()}" >
 
                                                     </p:commandButton>
                                                 </p:panelGrid>
@@ -170,16 +170,16 @@
 
                                     <tr>
                                         <td colspan="3">
-                                            <p:panel header="#{labels.replaceWithCarderAccordingToTheInstitutionType}" >
-                                                <h:commandButton value="#{labels.fill}" action="#{institutionCadreController.fillInsTypeCarder()}" />
+                                            <p:panel header="Replace With Carder According To The Institution Type" >
+                                                <h:commandButton value="Fill" action="#{institutionCadreController.fillInsTypeCarder()}" />
                                             </p:panel>
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <td colspan="3">
-                                            <p:panel header="#{labels.replaceWithCarderByToValuesOfThePreviousMonth}" >
-                                                <h:commandButton value="#{labels.fill}" action="#{institutionCadreController.fillLastMonthCarder()}" />
+                                            <p:panel header="Replace With Carder By To Values Of The Previous Month" >
+                                                <h:commandButton value="Fill" action="#{institutionCadreController.fillLastMonthCarder()}" />
                                             </p:panel>
                                         </td>
                                     </tr>
@@ -187,8 +187,8 @@
 
                                     <tr>
                                         <td colspan="3">
-                                            <p:panel header="#{labels.saveEditedValues}" >
-                                                <h:commandButton value="#{labels.save}" action="#{institutionCadreController.saveAll()}" />
+                                            <p:panel header="Save Edited Values" >
+                                                <h:commandButton value="Save" action="#{institutionCadreController.saveAll()}" />
                                             </p:panel>
                                         </td>
                                     </tr>
